@@ -1,0 +1,132 @@
+      {% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width,initial-scale=1" name="viewport">
+  <meta content="description" name="description">
+  <meta name="google" content="notranslate" />
+  <meta content="Mashup templates have been developped by Orson.io team" name="author">
+
+  <!-- Disable tap highlight on IE -->
+  <meta name="msapplication-tap-highlight" content="no">
+  {% load static %}
+  <link rel="apple-touch-icon" sizes="180x180" href="{% static 'home/images/apple-icon-180x180.png' %}">
+  <link href="{% static 'home/images/pen.png' %}" rel="icon">
+  <link rel="stylesheet" href="{% static 'home/css/jquery-ui.css' %}">
+
+ <link href="https://fonts.googleapis.com/css?family=Sorts+Mill+Goudy" rel="stylesheet">
+{% block title %}
+  <title>Writy</title>
+{% endblock %}
+<link href="{% static 'home/css/main.3f6952e4.css' %}" rel="stylesheet"></head>
+<link href="{% static 'home/css/home.css' %}" rel="stylesheet"></head>
+{% block css %}
+
+{% endblock %}
+
+<body class="minimal">
+<div id="site-border-left"></div>
+<div id="site-border-right"></div>
+<div id="site-border-top"></div>
+<div id="site-border-bottom"></div>
+<!-- Add your content of header -->
+<header>
+  {% block nav %}
+  <nav class="navbar  navbar-fixed-top navbar-inverse">
+  {% endblock %}
+    <div class="container">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav ">
+
+          <li><a href="{% url 'home:homepage' %}" title="">Main</a></li>
+          <li><a href="{% url 'accounts:profiles' %}" title="">Writers</a></li>
+          <li><a href="{% url 'writings:list' %}" title="">Writings</a></li>
+          <li><a href="{% url 'home:about' %}" title="">About Us</a></li>
+          <li><a href="{% url 'home:contact' %}" title="">Contact</a></li>
+          {% if not user.is_authenticated %}
+          <li><a href="{% url 'accounts:login' %}" title="">Log In</a></li>
+          {% else %}
+          <li><a href="{% url 'accounts:logout' %}" title="">Log Out</a></li>
+          {% endif %}
+
+        </ul>
+
+
+
+
+
+
+      </div>
+    </div>
+  </nav>
+</header>
+<!-- Add your site or app content here -->
+{% block body %}
+  <div class="hero-full-container background-image-container white-text-container home" style="background-image: url('/static/home/images/machine.jpg')">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="hero-full-wrapper">
+            <div class="text-content">
+              <h1><br>
+                <span id="typed-strings">
+                  {% if request.user.is_authenticated %}
+                  <span> <a href="{% url 'accounts:profile-detail' request.user.id %}">{{ user.username }}</a></span>
+                  {% else %}
+                  <span>writy</span>
+                  {% endif %}
+                  <span></span>
+                  <span></span>
+                </span>
+
+                <span id="typed"></span>
+              </h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+
+
+
+{% load static %}
+<script type="text/javascript" src="{% static 'home/js/main.70a66962.js' %}"></script>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+<script type="text/javascript" src="{% static 'home/js/jquery-ui.js' %}"></script>
+<script>
+$( function() {
+    $( "#datepicker" ).datepicker();
+  } );
+</script>
+
+  {% block script %}
+  <script>
+    document.addEventListener("DOMContentLoaded", function (event) {
+       type();
+       movingBackgroundImage();
+    });
+  </script>
+  {% endblock %}
+
+
+
+</body>
+
+
+</html>

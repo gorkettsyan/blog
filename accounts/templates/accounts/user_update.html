@@ -1,0 +1,148 @@
+{% extends 'home/index.html' %}
+
+{% block title %}
+
+	<title>Porfile Settings</title>
+{% endblock %}
+
+{% block css %}
+{% load static %}
+<link href="{% static 'home/css/styles.css' %}" rel="stylesheet">
+{% endblock %}
+
+
+
+{% block nav %}
+  <nav class="navbar  navbar-fixed-top navbar-default">
+{% endblock %}
+
+
+{% block body %}
+<div class="section-container">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="section-container-spacer text-center">
+            <h1 class="h2">Profile Settings</h1>
+          </div>
+
+  <form  name="update" enctype="multipart/form-data" method="POST" >
+{% csrf_token %}
+
+
+
+
+<div class="row">
+
+	{% if form.errors %}
+	    {% for field in form %}
+	        {% for error in field.errors %}
+	            <div class="alert alert-danger">
+	                <strong>{{ error|escape }}</strong>
+	            </div>
+	        {% endfor %}
+	    {% endfor %}
+	    {% for error in form.non_field_errors %}
+	        <div class="alert alert-danger">
+	            <strong>{{ error|escape }}</strong>
+	        </div>
+	    {% endfor %}
+	{% endif %}
+
+
+
+  <div class="col-md-4">
+
+    <div class="form-group">
+      <input type="text" name= 'username' value="{{ form.username.value }}"  class="form-control" placeholder="Username" required>
+
+
+
+
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="form-group">
+
+      <input type="text" name= 'first_name' value="{{ form.first_name.value }}"   class="form-control" placeholder="Name" required>
+
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="form-group">
+
+      <input type="text" name= 'last_name' value="{{ form.last_name.value }}"   class="form-control" placeholder="Surname" required>
+
+    </div>
+  </div>
+
+
+  <div class="col-md-4">
+    <div class="form-group">
+
+      <select type="text" name= 'gender' value="{{ form.gender.value }}" class="form-control" placeholder="gender"  required>
+
+        <option >male</option>
+        <option >female</option>
+
+      </select>
+
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="form-group">
+
+
+
+
+      <select type="text" name= 'location' value="{{ form.location.value }}" class="form-control"  required>
+
+        <option >Armenia</option>
+
+
+      </select>
+
+
+
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="form-group">
+
+      <input id="datepicker" type="text" name= 'birth_date' value="{{ form.birth_date.value|date:"Y-m-d" }}"  class="form-control" placeholder="BirthDate"  required  >
+
+    </div>
+</div>
+
+
+<div class="col-md-4">
+
+		<div class="form-group">
+			<img src="{{ form.picture.url }}" alt="">
+			<label for="id_picture">Picture:</label>
+			 Currently:
+			 <a href="{{ form.picture.url }}">images/insta_4xbrZS7.png</a>
+			 <input class="inputfile" type="file" name="picture" accept="image/*">
+		</div>
+	</div>
+
+
+
+  <div class="col-md-12">
+    <div class="form-group">
+      <input type="submit" value="Save"  class="btn btn-default btn-lg"  />
+
+    </div>
+  </div>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+
+
+
+{% endblock %}

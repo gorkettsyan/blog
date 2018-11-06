@@ -1,0 +1,96 @@
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+  color: #373737;
+}
+
+.form-control {
+  border: 1px solid #5a5c51;
+
+}
+
+.form-control:focus {
+  border-color: #1d2120;
+}
+
+
+.btn-default {
+  background-color: #5a6360;
+  color: white;
+  border-color:#DCD0C0;
+}
+
+.btn-default:hover {
+  background-color:  #373737;
+  border-color: #DCD0C0;
+}
+.btn-primary {
+  color: #373737;
+  border-color:#DCD0C0;
+}
+.btn-primary:hover {
+  background-color:  #373737;
+  border-color: #C0B283;
+}
+
+
+
+
+
+.h2{
+margin-top: 70px !important;
+}
+
+#site-border-bottom, #site-border-left, #site-border-right, #site-border-top {
+      background: #484849;
+
+}
+
+.writing {
+  color:#444!important;
+}
+
+.navbar-inverse .navbar-nav>li>a, .navbar-inverse .navbar-text{
+  color:white;
+}
+
+@font-face {
+  font-family: 'ArialArmST Italic';
+  src: url('/static/home/fonts/ArialArmSTItalic.ttf')  format("truetype"),
+       local('ArialArmSTItalic');
+}
+
+
+
+@media (max-width: 770px) {
+  .writerImg { width: 60% !important;margin:0 auto }
+}
+
+.navbar-default {
+	border:none !important;
+}
+
+a, h1, h2, h3, h4, h5, h6 ,
+p, div, ul li a , .h2 {
+	font-family: 'Sorts Mill Goudy', serif !important;
+}
+
+
+
+.textEditor {
+  width: 100%;
+  min-height:250px;
+}
+
+
+a:hover, a:focus{
+  text-decoration: none;
+}
+
+.alert-danger{
+  background-color: #d26a6a;
+  border-color:#d26a6a;
+}
+
+
+::selection{
+  background-color: #668ab1;
+}

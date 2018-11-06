@@ -1,0 +1,108 @@
+{% extends "home/index.html" %}
+
+{% block title %}
+<title>Log In</title>
+{% endblock %}
+
+
+{% block css %}
+{% load static %}
+<link href="{% static 'home/css/styles.css' %}" rel="stylesheet"></head>
+{% endblock %}
+
+
+
+
+
+
+{% block nav %}
+  <nav class="navbar  navbar-fixed-top navbar-default">
+{% endblock %}
+
+
+{% block body %}
+
+<div class="section-container"  >
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="section-container-spacer text-center">
+            <h1 class="h2">Log In</h1>
+          </div>
+
+
+
+
+
+
+{% if next %}
+    {% if user.is_authenticated %}
+    <p>Your account doesn't have access to this page. To proceed,
+    please login with an account that has access.</p>
+    {% else %}
+    <p>Please login to see this page.</p>
+    {% endif %}
+{% endif %}
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+{% if form.errors %}
+  <p class = "error">username and password don't match</p>
+  {% endif %}
+
+<form method="post"  class="reveal-content" action="{% url 'accounts:login' %}">
+{% csrf_token %}
+
+    <div class="row">
+    <div class="col-md-4">
+    <div class="form-group">
+
+      <input type="text" name= 'username'  class="form-control" placeholder="Username" required>
+
+
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="form-group">
+
+      <input type="password" name='password' class="form-control" placeholder="Password" requried>
+      <p class='forgetpass'><a href="">Fogot Password?</a></p>
+    </div>
+
+  </div>
+
+  <div class="col-md-12">
+    <div class="form-group">
+
+      <input type="submit" value="LogIn" class="btn btn-default btn-lg" />
+
+      <a href="{% url 'accounts:register' %}" class="btn btn-default btn-lg" >Register</a>
+
+      <input type="hidden" name="next" value="{% if request.REQUEST.next %}{{ request.REQUEST.next }}{% else %}{% if request.META.HTTP_REFERER %}{{ request.META.HTTP_REFERER }}{% else %}/{% endif %}{% endif %}" />
+    </div>
+  </div>
+</div>
+
+</form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+{# Assumes you setup the password_reset view in your URLconf #}
+
+
+{% endblock %}
+{% block script %}
+<script>
+  document.addEventListener("DOMContentLoaded", function (event) {
+     navActivePage();
+  });
+</script>
+
+{% endblock %}

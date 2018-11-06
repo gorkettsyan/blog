@@ -1,0 +1,64 @@
+{% extends 'home/index.html' %}
+
+
+{% block title %}
+
+	<title>Writings</title>
+
+{% endblock %}
+
+
+{% block css %}
+{% load static %}
+<link href="{% static 'home/css/styles.css' %}" rel="stylesheet"></head>
+{% endblock %}
+
+
+{% block nav %}
+<nav class="navbar  navbar-fixed-top navbar-default">
+{% endblock %}
+
+
+
+
+
+{% block body %}
+
+
+<div class="section-container">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="section-container-spacer text-center">
+            <h1 class="h2">{{ object.title }}</h1>
+          </div>
+
+
+			<div class="container">
+<div style="width:75%;margin:0 auto;">
+
+
+
+	<div>{% autoescape off %} {{ object.body }} {% endautoescape %}</div>
+	<p>{{ object.timestamp }}</p>
+	<p>{{ object.category }}</p>
+	{% if user.is_authenticated %}
+		{% if request.user == object.owner %}
+			<a href = "{% url 'writings:update' object.id %}" class="btn btn-default btn-lg" >Edit</a>
+		{% endif %}
+	{% endif %}
+
+</div>
+</div>
+		</div>
+	  </div>
+	</div>
+</div>
+
+
+
+
+
+
+
+{% endblock %}

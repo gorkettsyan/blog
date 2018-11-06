@@ -1,0 +1,99 @@
+{% extends 'home/index.html' %}
+
+{% block head %}
+
+<title>Edit</title>
+
+
+
+{% endblock %}
+{% block css %}
+{% load static %}
+<link href="{% static 'home/css/styles.css' %}" rel="stylesheet"></head>
+{% endblock %}
+
+
+{% block nav %}
+<nav class="navbar  navbar-fixed-top navbar-default">
+{% endblock %}
+
+
+
+{% block body %}
+<div class="background-image-container white-text-container home" style="background-image: url('/static/home/images/typewriter4.jpg'); " >
+<div class="section-container">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="section-container-spacer text-center">
+            <h1 class="h2">Edit</h1>
+          </div>
+
+	<form action="" method="post">{% csrf_token %}
+
+		<div class="row">
+
+			<div class="col-md-6">
+			<div class="form-group">
+						<input type="text" value="{{ form.title.value }}"  name= 'title'  class="form-control" placeholder="Title">
+					</div>
+				</div>
+
+		<div class="col-md-6">
+		<div class="form-group">
+				<select  type="text" value = "{{ form.category.value }}"  name= 'category' class="form-control">
+
+          <option >Article</option>
+          <option >Prose</option>
+          <option >Poetry</option>
+          <option >Essay</option>
+          <option >Memorial</option>
+          <option >Non-Fiction</option>
+
+					</select>
+			</div>
+	</div>
+
+
+
+
+		<div class="col-md-12">
+	<div class="form-group">
+			<textarea name="body" class="textEditor" required>{{form.body.value}}</textarea>
+
+		</div>
+	</div>
+
+
+
+		<div class="col-md-12">
+	<div class="form-group">
+			<input type="submit" class="btn btn-primary" value="Publish" />
+	</div>
+</div>
+</div>
+
+</form>
+</div>
+</div>
+	</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+{% endblock %}
+
+
+{% block script %}
+{% load static %}
+<script src="{% static 'writings/js/jquery.isotope.min.js' %}"></script>
+
+
+{% endblock %}

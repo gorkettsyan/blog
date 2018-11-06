@@ -1,0 +1,63 @@
+{% extends 'home/index.html' %}
+
+
+{% block title %}
+
+	<title>Writings</title>
+
+{% endblock %}
+
+{% block css %}
+{% load static %}
+
+        <link rel="stylesheet" type="text/css"  href="{% static 'home/css/styles.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'writings/css/paginator.css' %}">
+{% endblock %}
+
+
+
+
+
+{% block nav %}
+<nav class="navbar  navbar-fixed-top navbar-default">
+{% endblock %}
+
+
+
+{% block body %}
+
+
+
+<div class="section-container">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="section-container-spacer text-center">
+            <h1 class="h2">All Writings</h1>
+          </div>
+<div style="margin:50px 0;">
+{% for writing in writingpage %}
+  <div class="row" style="font-size: 25px;padding: 7px 0;">
+    <div class="col-md-2"></div>
+    <div class="col-md-5"><a class="writing" href="/writings/{{ writing.id }}" >{{ writing.title }}</a></div>
+
+    <div class="col-md-2"></div>
+  </div>
+{% endfor %}
+{% include 'writings/paginator.html' with page=writingpage %}
+</div>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+
+{% endblock %}
+
+
+
+
+{% block script %}
+
+{% endblock %}

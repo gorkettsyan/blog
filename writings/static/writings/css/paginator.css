@@ -1,0 +1,21 @@
+.pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus, .pagination > .active > span, .pagination > .active > span:hover, .pagination > .active > span:focus{
+
+font-weight:900;
+
+}
+.pagination > li > a, .pagination > li > span {
+  color :black;
+
+}
+
+.pagination {
+  list-style: none;
+  text-align: center;
+  font-size: 25px;
+  margin-top:40px;
+}
+
+
+.pagination li {
+  display:inline;
+}
