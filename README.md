@@ -10,4 +10,7 @@ Blog for writers with python 3.6 and Django 1.11
 pip install -r requirements.txt
 
 ```
-3. ``` python manage.py runserver ```
+
+3. ``` python manage.py makemigrations ```
+4. ``` python manage.py migrate ```
+5. ``` python manage.py runserver ```
