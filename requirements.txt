@@ -6,5 +6,5 @@ django-fm==0.2.5
 django-js-asset==0.1.1
 django-sass-processor==0.5.7
 django-static-precompiler==1.7
-Pillow==4.3.0
+Pillow
 
