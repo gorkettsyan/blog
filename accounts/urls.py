@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from django.contrib.auth.views import logout
+from django.contrib.auth import logout
 from django.views.decorators.csrf import csrf_exempt
 from writers.settings import LOGOUT_REDIRECT_URL
 from django.contrib.auth.views import LoginView

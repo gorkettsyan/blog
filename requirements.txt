@@ -1,10 +1,9 @@
-
-Django==2.2.18
+Django==3.2
 django-allauth==0.35.0
 django-crispy-forms==1.7.0
 django-fm==0.2.5
 django-js-asset==0.1.1
 django-sass-processor==0.5.7
 django-static-precompiler==1.7
+django-utils-six
 Pillow
-

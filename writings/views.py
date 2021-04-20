@@ -4,10 +4,9 @@ from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView
 from .models import Writing
 from .forms import WritingCreateForm
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.shortcuts import  get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-
 
 
 def writing_listview(request):
@@ -16,6 +15,7 @@ def writing_listview(request):
 
 	paginator = Paginator(writings, 10)
 	page = request.GET.get('page')
+
 	try:
 		writingpage = paginator.page(page)
 	except PageNotAnInteger:
@@ -23,16 +23,9 @@ def writing_listview(request):
 	except EmptyPage:
 		writingpage = paginator.page(paginator.num_pages)
 
-	context = {
-				'writingpage':writingpage
-		}
+	context = {'writingpage':writingpage}
 
 	return render(request, template_name, context)
-
-
-
-
-
 
 
 def writing_createview(request):

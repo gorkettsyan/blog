@@ -1,5 +1,5 @@
 from django.db import models
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from accounts.models import User
 
 
@@ -9,9 +9,6 @@ class Writing(models.Model):
 	body = models.TextField()
 	category = models.CharField(max_length=100)
 	timestamp = models.DateTimeField(auto_now= True)
-
-
-
 
 	def __str__(self):
 		return self.title
