@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 Django==3.2
+=======
+
+Django==2.2.20
+>>>>>>> 80f940cfcd887330d7709e32993a6f927a2ecd9b
 django-allauth==0.35.0
 django-crispy-forms==1.7.0
 django-fm==0.2.5

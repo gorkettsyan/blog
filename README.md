@@ -1,9 +1,9 @@
 # blog
-Blog for writers with python 3.6 and Django 1.11
+Blog for writers with python 3.9 and Django 3.2
 
 # To run locally, do the usual:
 
-1. Create a Python 3.6 virtualenv
+1. Create a Python 3.9 PIPENV
 2. Install dependencies:
 
 ```
